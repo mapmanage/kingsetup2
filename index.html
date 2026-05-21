@@ -1,169 +1,227 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
 
-  <title>King Setup</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
+<title>King Setup</title>
 
-    body{
-      margin:0;
-      background:#000;
-      color:white;
-      font-family:Arial;
-    }
+<style>
 
-    header{
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      padding:20px;
-      border-bottom:1px solid #222;
-    }
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial;
+}
 
-    .logo{
-      color:gold;
-      font-size:28px;
-      font-weight:bold;
-    }
+body{
+background:#000;
+color:white;
+}
 
-    .login-btn{
-      background:gold;
-      border:none;
-      padding:10px 20px;
-      border-radius:10px;
-      font-weight:bold;
-    }
+header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px;
+border-bottom:1px solid #222;
+position:sticky;
+top:0;
+background:#000;
+z-index:100;
+}
 
-    .hero{
-      text-align:center;
-      padding:50px 20px;
-    }
+.logo{
+font-size:28px;
+font-weight:bold;
+color:gold;
+}
 
-    .hero h1{
-      color:gold;
-      font-size:40px;
-      margin-bottom:10px;
-    }
+.admin-btn{
+background:gold;
+color:black;
+border:none;
+padding:10px 20px;
+border-radius:10px;
+font-weight:bold;
+}
 
-    .hero p{
-      color:#aaa;
-    }
+.hero{
+padding:50px 20px;
+text-align:center;
+}
 
-    .search-box{
-      margin-top:30px;
-      display:flex;
-      justify-content:center;
-      gap:10px;
-    }
+.hero h1{
+font-size:45px;
+color:gold;
+margin-bottom:15px;
+}
 
-    .search-box input{
-      width:65%;
-      max-width:350px;
-      padding:15px;
-      border:none;
-      border-radius:10px;
-      background:#111;
-      color:white;
-      font-size:16px;
-    }
+.hero p{
+color:#aaa;
+margin-bottom:30px;
+}
 
-    .search-box button{
-      padding:15px 20px;
-      background:gold;
-      border:none;
-      border-radius:10px;
-      font-weight:bold;
-    }
+.search-box{
+display:flex;
+justify-content:center;
+gap:10px;
+flex-wrap:wrap;
+}
 
-    .products{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:15px;
-      padding:20px;
-    }
+.search-box input{
+width:70%;
+max-width:400px;
+padding:15px;
+border:none;
+border-radius:10px;
+background:#111;
+color:white;
+font-size:16px;
+}
 
-    .card{
-      background:#111;
-      border-radius:15px;
-      overflow:hidden;
-      border:1px solid #222;
-    }
+.search-box button{
+padding:15px 20px;
+background:gold;
+border:none;
+border-radius:10px;
+font-weight:bold;
+}
 
-    .card img{
-      width:100%;
-      height:180px;
-      object-fit:cover;
-    }
+#adminPanel{
+display:none;
+background:#111;
+padding:20px;
+border-bottom:1px solid #222;
+}
 
-    .content{
-      padding:15px;
-    }
+.admin-container{
+max-width:500px;
+margin:auto;
+display:flex;
+flex-direction:column;
+gap:10px;
+}
 
-    .price{
-      color:gold;
-      font-size:22px;
-      font-weight:bold;
-      margin:10px 0;
-    }
+.admin-container input{
+padding:15px;
+background:#000;
+border:1px solid #333;
+border-radius:10px;
+color:white;
+}
 
-    .view-btn{
-      width:100%;
-      padding:12px;
-      border:none;
-      border-radius:10px;
-      background:gold;
-      font-weight:bold;
-    }
+.admin-container button{
+padding:15px;
+background:gold;
+border:none;
+border-radius:10px;
+font-weight:bold;
+}
 
-  </style>
+.products{
+display:grid;
+grid-template-columns:
+repeat(auto-fit,minmax(180px,1fr));
+gap:15px;
+padding:20px;
+}
+
+.card{
+background:#111;
+border-radius:15px;
+overflow:hidden;
+border:1px solid #222;
+transition:0.3s;
+}
+
+.card:hover{
+transform:scale(1.03);
+border-color:gold;
+}
+
+.card img{
+width:100%;
+height:180px;
+object-fit:cover;
+}
+
+.content{
+padding:15px;
+}
+
+.market{
+font-size:12px;
+color:#aaa;
+margin-bottom:8px;
+}
+
+.price{
+color:gold;
+font-size:22px;
+font-weight:bold;
+margin:10px 0;
+}
+
+.view-btn{
+width:100%;
+padding:12px;
+background:gold;
+border:none;
+border-radius:10px;
+font-weight:bold;
+}
+
+footer{
+background:#111;
+padding:30px 20px;
+margin-top:40px;
+border-top:1px solid #222;
+text-align:center;
+}
+
+footer h2{
+color:gold;
+margin-bottom:10px;
+}
+
+footer p{
+color:#777;
+font-size:14px;
+line-height:1.6;
+}
+
+.platforms{
+margin-top:20px;
+display:flex;
+justify-content:center;
+gap:10px;
+flex-wrap:wrap;
+}
+
+.platforms span{
+background:#222;
+padding:10px 15px;
+border-radius:10px;
+}
+
+</style>
 
 </head>
 
 <body>
 
 <header>
-<div
-id="adminPanel"
-style="
-display:none;
-background:#111;
-padding:15px;
-border-bottom:1px solid #222;
-text-align:center;
-"
->
 
-<h2 style="color:gold;">
-Admin Dashboard
-</h2>
-
-<p style="color:#aaa;">
-Owner Control Center Active
-</p>
-
-<button
-onclick="toggleAdmin()"
-style="
-padding:10px 20px;
-background:red;
-color:white;
-border:none;
-border-radius:10px;
-margin-top:10px;
-"
->
-Close Admin
-</button>
-
+<div class="logo">
+King Setup
 </div>
-  <div class="logo">
-    King Setup
-  </div>
 
 <button
-class="login-btn"
+class="admin-btn"
 onclick="toggleAdmin()"
 >
 Admin
@@ -171,150 +229,257 @@ Admin
 
 </header>
 
-<section class="hero">
-<section style="padding:20px;">
+<div id="adminPanel">
+
+<div class="admin-container">
 
 <h2 style="color:gold;text-align:center;">
-Admin Product Panel
+Admin Dashboard
 </h2>
-
-<div style="
-display:flex;
-flex-direction:column;
-gap:10px;
-max-width:400px;
-margin:auto;
-">
 
 <input
 type="text"
 id="productTitle"
 placeholder="Product Name"
-style="
-padding:15px;
-background:#111;
-border:none;
-border-radius:10px;
-color:white;
-"
 >
 
 <input
 type="text"
 id="productPrice"
 placeholder="Product Price"
-style="
-padding:15px;
-background:#111;
-border:none;
-border-radius:10px;
-color:white;
-"
 >
 
 <input
 type="text"
 id="productImage"
 placeholder="Product Image URL"
-style="
-padding:15px;
-background:#111;
-border:none;
-border-radius:10px;
-color:white;
-"
 >
 
-<button
-onclick="addProduct()"
-style="
-padding:15px;
-background:gold;
-border:none;
-border-radius:10px;
-font-weight:bold;
-"
+<input
+type="text"
+id="productMarket"
+placeholder="Marketplace Name"
 >
+
+<button onclick="addProduct()">
 Add Product
 </button>
 
 </div>
 
-</section>
-  <h1>
-    Dynamic Product Search
-  </h1>
+</div>
 
-  <p>
-    Search Products Instantly
-  </p>
+<section class="hero">
 
-  <div class="search-box">
+<h1>
+Global Marketplace Search
+</h1>
 
-    <input
-      type="text"
-      id="searchInput"
-      placeholder="Search products..."
-    >
+<p>
+Search products instantly from multiple marketplaces
+</p>
 
-    <button onclick="searchProducts()">
-      Search
-    </button>
+<div class="search-box">
 
-  </div>
+<input
+type="text"
+id="searchInput"
+placeholder="Search products..."
+>
+
+<button onclick="searchProducts()">
+Search
+</button>
+
+</div>
 
 </section>
 
 <section
-  class="products"
-  id="productContainer"
+class="products"
+id="productContainer"
 >
 
 </section>
 
+<footer>
+
+<h2>
+King Setup
+</h2>
+
+<p>
+Dynamic marketplace search engine with admin control panel and product management system.
+</p>
+
+<div class="platforms">
+<span>Amazon</span>
+<span>Alibaba</span>
+<span>AliExpress</span>
+<span>eBay</span>
+<span>Walmart</span>
+</div>
+
+<p style="margin-top:20px;">
+© 2026 King Setup
+</p>
+
+</footer>
+
 <script>
 
-const products = [let products = [
+let savedProducts =
+localStorage.getItem("products");
+
+let products = [
 
 {
-title:"Running Shoes",
-price:"$99",
-image:"https://images.unsplash.com/photo-1542291026-7eec264c27ff"
+title:"iPhone 15 Pro",
+price:"$999",
+market:"Amazon",
+image:"https://images.unsplash.com/photo-1511707171634-5f897ff02aa9"
+},
+
+{
+title:"Gaming Laptop",
+price:"$899",
+market:"Amazon",
+image:"https://images.unsplash.com/photo-1517336714739-489689fd1ca8"
 },
 
 {
 title:"Luxury Watch",
 price:"$120",
+market:"AliExpress",
 image:"https://images.unsplash.com/photo-1523275335684-37898b6baf30"
+},
+
+{
+title:"Running Shoes",
+price:"$99",
+market:"Nike Store",
+image:"https://images.unsplash.com/photo-1542291026-7eec264c27ff"
+},
+
+{
+title:"Wireless Headphone",
+price:"$80",
+market:"Alibaba",
+image:"https://images.unsplash.com/photo-1505740420928-5e560c06d30e"
+},
+
+{
+title:"Smart TV",
+price:"$650",
+market:"Walmart",
+image:"https://images.unsplash.com/photo-1593784991095-a205069470b6"
+},
+
+{
+title:"Gaming Mouse",
+price:"$45",
+market:"Amazon",
+image:"https://images.unsplash.com/photo-1527814050087-3793815479db"
+},
+
+{
+title:"Bluetooth Speaker",
+price:"$60",
+market:"eBay",
+image:"https://images.unsplash.com/photo-1589003077984-894e133dabab"
+},
+
+{
+title:"Camera Lens",
+price:"$340",
+market:"AliExpress",
+image:"https://images.unsplash.com/photo-1516035069371-29a1b244cc32"
+},
+
+{
+title:"MacBook Pro",
+price:"$1500",
+market:"Apple",
+image:"https://images.unsplash.com/photo-1515879218367-8466d910aaa4"
+},
+
+{
+title:"Drone Camera",
+price:"$430",
+market:"Alibaba",
+image:"https://images.unsplash.com/photo-1473968512647-3e447244af8f"
+},
+
+{
+title:"Office Chair",
+price:"$180",
+market:"Walmart",
+image:"https://images.unsplash.com/photo-1505843490701-5be5d7d0f11d"
+},
+
+{
+title:"Mechanical Keyboard",
+price:"$95",
+market:"Amazon",
+image:"https://images.unsplash.com/photo-1511467687858-23d96c32e4ae"
+},
+
+{
+title:"Tablet Device",
+price:"$320",
+market:"eBay",
+image:"https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0"
+},
+
+{
+title:"Digital Camera",
+price:"$700",
+market:"Canon",
+image:"https://images.unsplash.com/photo-1510127034890-ba27508e9f1c"
+},
+
+{
+title:"Backpack",
+price:"$55",
+market:"AliExpress",
+image:"https://images.unsplash.com/photo-1581605405669-fcdf81165afa"
+},
+
+{
+title:"Fitness Band",
+price:"$40",
+market:"Amazon",
+image:"https://images.unsplash.com/photo-1575311373937-040b8e1fd5b6"
+},
+
+{
+title:"Coffee Machine",
+price:"$210",
+market:"Walmart",
+image:"https://images.unsplash.com/photo-1517668808822-9ebb02f2a0e6"
+},
+
+{
+title:"Monitor Display",
+price:"$280",
+market:"Alibaba",
+image:"https://images.unsplash.com/photo-1527443224154-c4a3942d3acf"
+},
+
+{
+title:"Gaming Console",
+price:"$499",
+market:"eBay",
+image:"https://images.unsplash.com/photo-1606144042614-b2417e99c4e3"
 }
 
 ];
 
-{
-  title:"Running Shoes",
-  price:"$99",
-  image:"https://images.unsplash.com/photo-1542291026-7eec264c27ff"
-},
+if(savedProducts){
 
-{
-  title:"Luxury Watch",
-  price:"$120",
-  image:"https://images.unsplash.com/photo-1523275335684-37898b6baf30"
-},
+products = JSON.parse(savedProducts);
 
-{
-  title:"Gaming Laptop",
-  price:"$899",
-  image:"https://images.unsplash.com/photo-1517336714739-489689fd1ca8"
-},
-
-{
-  title:"Wireless Headphone",
-  price:"$80",
-  image:"https://images.unsplash.com/photo-1505740420928-5e560c06d30e"
 }
-
-];
 
 function showProducts(items){
 
@@ -333,7 +498,13 @@ container.innerHTML += `
 
 <div class="content">
 
-<h3>${product.title}</h3>
+<div class="market">
+${product.market}
+</div>
+
+<h3>
+${product.title}
+</h3>
 
 <div class="price">
 ${product.price}
@@ -352,14 +523,53 @@ View Product
 });
 
 }
-if(savedProducts){
 
-products = JSON.parse(savedProducts);
-
-}
 showProducts(products);
 
-function searchProducts(){function addProduct(){
+function searchProducts(){
+
+let input =
+document.getElementById("searchInput")
+.value.toLowerCase();
+
+let filtered =
+products.filter(product =>
+product.title.toLowerCase().includes(input)
+);
+
+showProducts(filtered);
+
+}
+
+function toggleAdmin(){
+
+let password =
+prompt("Enter Admin Password");
+
+if(password === "king123"){
+
+let panel =
+document.getElementById("adminPanel");
+
+if(panel.style.display === "none"){
+
+panel.style.display = "block";
+
+}else{
+
+panel.style.display = "none";
+
+}
+
+}else{
+
+alert("Wrong Password");
+
+}
+
+}
+
+function addProduct(){
 
 let title =
 document.getElementById("productTitle").value;
@@ -370,37 +580,31 @@ document.getElementById("productPrice").value;
 let image =
 document.getElementById("productImage").value;
 
+let market =
+document.getElementById("productMarket").value;
+
 let newProduct = {
 
 title:title,
 price:price,
-image:image
+image:image,
+market:market
 
 };
 
 products.push(newProduct);
+
 localStorage.setItem(
 "products",
 JSON.stringify(products)
 );
+
 showProducts(products);
 
 document.getElementById("productTitle").value = "";
 document.getElementById("productPrice").value = "";
 document.getElementById("productImage").value = "";
-
-}
-
-let input =
-document.getElementById("searchInput")
-.value.toLowerCase();
-
-let filteredProducts =
-products.filter(product =>
-product.title.toLowerCase().includes(input)
-);
-
-showProducts(filteredProducts);
+document.getElementById("productMarket").value = "";
 
 }
 
@@ -408,528 +612,4 @@ showProducts(filteredProducts);
 
 </body>
 
-</html>">Marketplace Analysis</h2>
-        </div>
-
-        <div id="productsGrid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 gap-6">
-            <div class="bg-white p-6 rounded-2xl border border-gray-200 shadow-xs flex flex-col text-center justify-center items-center py-12 col-span-full">
-                <div class="bg-gray-100 text-gray-400 w-16 h-16 rounded-full flex items-center justify-center text-2xl mb-4">
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                </div>
-                <h3 class="text-lg font-bold text-gray-900 mb-1">Your Storefront is Empty</h3>
-                <p class="text-gray-500 text-sm max-w-sm">Type any wholesale keyword in the global dashboard above to sync real-time affiliate nodes from multiple markets.</p>
-            </div>
-        </div>
-    </main>
-
-    <footer class="bg-gray-900 text-gray-400 text-xs py-8 border-t border-gray-800 text-center mt-20">
-        <p class="mb-2">© 2026 King Setup Engine Systems. All Rights Reserved.</p>
-        <p class="text-gray-600">Data pipelines generated natively via secure localized cloud scripts.</p>
-    </footer>
-
-    <script>
-        const GOOGLE_SHEET_WEBAPP_URL = "https://script.google.com/macros/s/AKfycbwjgzey-oGjqBzlf_emaSYIxeMFVCdYHfZ7aNYulH9W6s5Q9S9QuGwrTa7lNv5OOaoc/exec";
-        const DEFAULT_TRACKING_ID = "kingsetup-20";
-
-        function toggleAdminPanel() {
-            document.getElementById('adminPanel').classList.toggle('hidden');
-        }
-
-        async function logToGoogleSheet(actionType, keyword, targetLink = "") {
-            if (!GOOGLE_SHEET_WEBAPP_URL) return;
-            const formData = new FormData();
-            formData.append("actionType", actionType);
-            formData.append("keyword", keyword);
-            formData.append("targetLink", targetLink);
-            try {
-                fetch(GOOGLE_SHEET_WEBAPP_URL, { method: "POST", body: formData, mode: "no-cors" });
-            } catch (e) { console.error("Sync issue."); }
-        }
-
-        document.getElementById('searchForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const keyword = document.getElementById('searchInput').value.trim();
-            if(!keyword) return;
-
-            logToGoogleSheet("Multi-Search", keyword);
-
-            const grid = document.getElementById('productsGrid');
-            const loading = document.getElementById('loading');
-            const header = document.getElementById('resultHeader');
-            const title = document.getElementById('resultTitle');
-
-            grid.innerHTML = "";
-            loading.classList.remove('hidden');
-            header.classList.remove('hidden');
-            title.innerText = `Aggregated Matrix for "${keyword}"`;
-
-            setTimeout(() => {
-                loading.classList.add('hidden');
-                
-                const platforms = [
-                    { name: "AliExpress Hub", icon: "fa-store", color: "bg-orange-500 text-white", domain: "aliexpress.com" },
-                    { name: "Alibaba Factory", icon: "fa-boxes-stacked", color: "bg-amber-500 text-gray-950", domain: "alibaba.com" }
-                ];
-
-                for (let i = 1; i <= 8; i++) {
-                    const platform = platforms[i % 2]; 
-                    const productName = `${keyword} OEM Industrial Grade Build v${i}`;
-                    const originalLink = `https://www.${platform.domain}/item/${Math.floor(Math.random() * 999999)}.html`;
-                    const affiliateLink = `${originalLink}?aff_id=${DEFAULT_TRACKING_ID}`;
-
-                    const productHTML = `
-                        <div class="bg-white rounded-2xl border border-gray-200 shadow-xs hover:shadow-lg transition-all duration-300 flex flex-col overflow-hidden group">
-                            <div class="relative bg-gray-50 pt-[100%] overflow-hidden">
-                                <img src="https://images.unsplash.com/photo-1546868871-7041f2a55e12?w=400" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
-                                <span class="absolute top-3 left-3 ${platform.color} text-[10px] font-black tracking-wider px-2.5 py-1 rounded-md flex items-center gap-1.5 uppercase shadow-sm">
-                                    <i class="fa-solid ${platform.icon}"></i> ${platform.name}
-                                </span>
-                            </div>
-                            <div class="p-4 flex flex-col flex-grow">
-                                <h3 class="font-bold text-gray-900 text-sm line-clamp-2 mb-2 group-hover:text-blue-600 transition-colors">${productName}</h3>
-                                <div class="mt-auto pt-3 border-t border-gray-100">
-                                    <div class="flex items-baseline gap-1 mb-4">
-                                        <span class="text-lg font-black text-gray-950">$${(Math.random() * 25 + 2).toFixed(2)}</span>
-                                        <span class="text-[10px] text-gray-400 font-medium">/ unit FOB</span>
-                                    </div>
-                                    <a href="${affiliateLink}" target="_blank" onclick="logToGoogleSheet('Product Click', '${productName}', '${affiliateLink}')" class="w-full bg-blue-600 hover:bg-gray-900 text-white text-xs font-bold py-3 rounded-xl transition-all duration-200 flex items-center justify-center gap-2 text-center shadow-xs">
-                                        <span>Compare & Buy</span> <i class="fa-solid fa-arrow-right text-[10px]"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    `;
-                    grid.innerHTML += productHTML;
-                }
-            }, 1000);
-        });
-    </script>
-</body>
-</html>
-026</span> • <span>4 min read</span>
-              </div>
-              <h3 class="text-lg font-bold text-gray-900 mb-2 blog-title">How to Find True Online Product Discounts Fast</h3>
-              <p class="text-xs text-gray-500 leading-relaxed">Stop overpaying today. Learn the secret metrics behind major store discounts like Amazon, Daraz, and AliExpress.</p>
-            </div>
-            <button onclick="alert('Full article content integration upcoming.')" class="self-start mt-4 text-sm font-bold text-orange-500 hover:opacity-80 transition blog-link">Read Article →</button>
-          </div>
-        </article>
-      </div>
-    </div>
-
-  </main>
-
-  <footer class="text-center p-10 text-xs text-gray-400 border-t mt-12 bg-white transition-colors duration-300" id="footer-section">
-    <p class="max-w-xl mx-auto mb-4 style='line-height: 1.6' opacity-80">
-      Disclaimer: KING SETUP is a premium affiliate network platform. Some of the links above are affiliate links, meaning we may earn a small commission at no additional cost to you.
-    </p>
-    © 2026 KING SETUP Network Platform. All rights reserved.
-  </footer>
-
-  <script>
-    let currentCategory = 'All';
-
-    function switchTab(tab) {
-      const dealsSec = document.getElementById('deals-section');
-      const blogSec = document.getElementById('blog-section');
-      const btnDeals = document.getElementById('btn-deals');
-      const btnBlog = document.getElementById('btn-blog');
-      const searchContainer = document.getElementById('search-container');
-      const isCyber = document.getElementById('theme-select').value === 'cyber';
-
-      if (tab === 'deals') {
-        dealsSec.classList.remove('hidden');
-        blogSec.classList.add('hidden');
-        searchContainer.classList.remove('opacity-0');
-        btnDeals.className = `font-bold text-sm ${isCyber ? 'text-[#00ffff]' : 'text-[#0f4c4a]'}`;
-        btnBlog.className = 'text-sm text-gray-500 hover:text-gray-900';
-      } else {
-        dealsSec.classList.add('hidden');
-        blogSec.classList.remove('hidden');
-        searchContainer.classList.add('opacity-0');
-        btnBlog.className = `font-bold text-sm ${isCyber ? 'text-[#00ffff]' : 'text-[#0f4c4a]'}`;
-        btnDeals.className = 'text-sm text-gray-500 hover:text-gray-900';
-      }
-    }
-
-    function filterCategory(cat) {
-      currentCategory = cat;
-      const btns = document.querySelectorAll('.cat-btn');
-      btns.forEach(btn => {
-        if(btn.innerText === cat) {
-          btn.className = "cat-btn bg-orange-500 text-white p-2 px-5 rounded-full text-xs font-semibold shadow-sm transition";
-        } else {
-          btn.className = "cat-btn bg-white text-gray-800 p-2 px-5 rounded-full text-xs font-semibold shadow-sm hover:bg-gray-100 transition";
-        }
-      });
-      filterProducts();
-    }
-
-    function filterProducts() {
-      const query = document.getElementById('search-input').value.toLowerCase();
-      const cards = document.querySelectorAll('.product-card');
-      
-      cards.forEach(card => {
-        const cat = card.getAttribute('data-category');
-        const name = card.getAttribute('data-name');
-        
-        const matchesCat = (currentCategory === 'All' || cat === currentCategory);
-        const matchesSearch = name.includes(query);
-        
-        if(matchesCat && matchesSearch) {
-          card.classList.remove('hidden');
-        } else {
-          card.classList.add('hidden');
-        }
-      });
-    }
-
-    function toggleTheme(theme) {
-      const isCyber = theme === 'cyber';
-      document.getElementById('body-bg').className = isCyber ? "bg-[#0b0c10] text-white" : "bg-[#f4f7f6] text-gray-900";
-      document.getElementById('nav-card').className = `p-4 px-6 flex justify-between items-center shadow-sm sticky top-0 z-50 transition-colors duration-300 ${isCyber ? 'bg-[#1f2833] text-white' : 'bg-white text-gray-900'}`;
-      document.getElementById('logo-text').className = `text-xl font-extrabold tracking-wide ${isCyber ? 'text-[#00ffff]' : 'text-[#0f4c4a]'}`;
-      document.getElementById('theme-select').className = `p-1.5 px-3 rounded-full border-2 bg-transparent font-bold text-xs cursor-pointer outline-none ${isCyber ? 'border-[#00ffff] text-white' : 'border-[#0f4c4a] text-gray-900'}`;
-      document.getElementById('hero-banner').style.background = isCyber ? "linear-gradient(135deg, #1f2833 0%, #0b0c10 100%)" : "linear-gradient(135deg, #0f4c4a 0%, #1a202c 100%)";
-      document.getElementById('footer-section').className = `text-center p-10 text-xs text-gray-400 border-t mt-12 transition-colors duration-300 ${isCyber ? 'bg-[#0b0c10] border-gray-800' : 'bg-white border-gray-200'}`;
-      
-      // Cards Theme Adjustments
-      document.querySelectorAll('.product-card, .blog-card').forEach(c => {
-        c.style.backgroundColor = isCyber ? '#1f2833' : '#ffffff';
-        c.style.borderColor = isCyber ? '#2d3748' : 'transparent';
-      });
-      document.querySelectorAll('.deal-btn').forEach(b => {
-        b.style.backgroundColor = isCyber ? '#00ffff' : '#0f4c4a';
-        b.style.color = isCyber ? '#0b0c10' : '#ffffff';
-      });
-      document.querySelectorAll('.price-text').forEach(t => {
-        t.style.color = isCyber ? '#00ffff' : '#0f4c4a';
-      });
-      document.querySelectorAll('.blog-title').forEach(t => {
-        t.style.color = isCyber ? '#ffffff' : '#1a202c';
-      });
-
-      // Reset Active Tab colors
-      const activeTab = document.getElementById('btn-deals').classList.contains('text-[#0f4c4a]') || document.getElementById('btn-deals').classList.contains('text-[#00ffff]') ? 'deals' : 'blog';
-      switchTab(activeTab);
-    }
-    function toggleAdmin(){
-    
-    let password =
-    prompt("Enter Admin Password");
-    
-    if(password === "king123"){
-    
-    let panel =
-    document.getElementById("adminPanel");
-    
-    if(panel.style.display === "none"){
-    
-    panel.style.display = "block";
-    
-    }else{
-    
-    panel.style.display = "none";
-    
-    }
-    
-    }else{
-    
-    alert("Wrong Password");
-    
-    }
-    
-    }
-    
-    let panel =
-    document.getElementById("adminPanel");
-    
-    if(panel.style.display === "none"){
-    
-    panel.style.display = "block";
-    
-    }else{
-    
-    panel.style.display = "none";
-    
-    }
-    
-    }
-  </script>
-</body>
-</html>
-  </div>
-                            <div class="p-4 flex flex-col flex-grow">
-                                <h3 class="font-bold text-gray-900 text-sm line-clamp-2 mb-2 group-hover:text-blue-600 transition-colors">${productName}</h3>
-                                <div class="mt-auto pt-3 border-t border-gray-100">
-                                    <div class="flex items-baseline gap-1 mb-4">
-                                        <span class="text-lg font-black text-gray-950">$${(Math.random() * 25 + 2).toFixed(2)}</span>
-                                        <span class="text-[10px] text-gray-400 font-medium">/ unit FOB</span>
-                                    </div>
-                                    <a href="${affiliateLink}" target="_blank" onclick="logToGoogleSheet('Product Click', '${productName}', '${affiliateLink}')" class="w-full bg-blue-600 hover:bg-gray-900 text-white text-xs font-bold py-3 rounded-xl transition-all duration-200 flex items-center justify-center gap-2 text-center shadow-xs">
-                                        <span>Compare & Buy</span> <i class="fa-solid fa-arrow-right text-[10px]"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    `;
-                    grid.innerHTML += productHTML;
-                }
-            }, 1000);
-        });
-    </script>
-</body>
-</html>
-026</span> • <span>4 min read</span>
-              </div>
-              <h3 class="text-lg font-bold text-gray-900 mb-2 blog-title">How to Find True Online Product Discounts Fast</h3>
-              <p class="text-xs text-gray-500 leading-relaxed">Stop overpaying today. Learn the secret metrics behind major store discounts like Amazon, Daraz, and AliExpress.</p>
-            </div>
-            <button onclick="alert('Full article content integration upcoming.')" class="self-start mt-4 text-sm font-bold text-orange-500 hover:opacity-80 transition blog-link">Read Article →</button>
-          </div>
-        </article>
-      </div>
-    </div>
-
-  </main>
-
-  <footer class="text-center p-10 text-xs text-gray-400 border-t mt-12 bg-white transition-colors duration-300" id="footer-section">
-    <p class="max-w-xl mx-auto mb-4 style='line-height: 1.6' opacity-80">
-      Disclaimer: KING SETUP is a premium affiliate network platform. Some of the links above are affiliate links, meaning we may earn a small commission at no additional cost to you.
-    </p>
-    © 2026 KING SETUP Network Platform. All rights reserved.
-  </footer>
-
-  <script>
-    let currentCategory = 'All';
-
-    function switchTab(tab) {
-      const dealsSec = document.getElementById('deals-section');
-      const blogSec = document.getElementById('blog-section');
-      const btnDeals = document.getElementById('btn-deals');
-      const btnBlog = document.getElementById('btn-blog');
-      const searchContainer = document.getElementById('search-container');
-      const isCyber = document.getElementById('theme-select').value === 'cyber';
-
-      if (tab === 'deals') {
-        dealsSec.classList.remove('hidden');
-        blogSec.classList.add('hidden');
-        searchContainer.classList.remove('opacity-0');
-        btnDeals.className = `font-bold text-sm ${isCyber ? 'text-[#00ffff]' : 'text-[#0f4c4a]'}`;
-        btnBlog.className = 'text-sm text-gray-500 hover:text-gray-900';
-      } else {
-        dealsSec.classList.add('hidden');
-        blogSec.classList.remove('hidden');
-        searchContainer.classList.add('opacity-0');
-        btnBlog.className = `font-bold text-sm ${isCyber ? 'text-[#00ffff]' : 'text-[#0f4c4a]'}`;
-        btnDeals.className = 'text-sm text-gray-500 hover:text-gray-900';
-      }
-    }
-
-    function filterCategory(cat) {
-      currentCategory = cat;
-      const btns = document.querySelectorAll('.cat-btn');
-      btns.forEach(btn => {
-        if(btn.innerText === cat) {
-          btn.className = "cat-btn bg-orange-500 text-white p-2 px-5 rounded-full text-xs font-semibold shadow-sm transition";
-        } else {
-          btn.className = "cat-btn bg-white text-gray-800 p-2 px-5 rounded-full text-xs font-semibold shadow-sm hover:bg-gray-100 transition";
-        }
-      });
-      filterProducts();
-    }
-
-    function filterProducts() {
-      const query = document.getElementById('search-input').value.toLowerCase();
-      const cards = document.querySelectorAll('.product-card');
-      
-      cards.forEach(card => {
-        const cat = card.getAttribute('data-category');
-        const name = card.getAttribute('data-name');
-        
-        const matchesCat = (currentCategory === 'All' || cat === currentCategory);
-        const matchesSearch = name.includes(query);
-        
-        if(matchesCat && matchesSearch) {
-          card.classList.remove('hidden');
-        } else {
-          card.classList.add('hidden');
-        }
-      });
-    }
-
-    function toggleTheme(theme) {
-      const isCyber = theme === 'cyber';
-      document.getElementById('body-bg').className = isCyber ? "bg-[#0b0c10] text-white" : "bg-[#f4f7f6] text-gray-900";
-      document.getElementById('nav-card').className = `p-4 px-6 flex justify-between items-center shadow-sm sticky top-0 z-50 transition-colors duration-300 ${isCyber ? 'bg-[#1f2833] text-white' : 'bg-white text-gray-900'}`;
-      document.getElementById('logo-text').className = `text-xl font-extrabold tracking-wide ${isCyber ? 'text-[#00ffff]' : 'text-[#0f4c4a]'}`;
-      document.getElementById('theme-select').className = `p-1.5 px-3 rounded-full border-2 bg-transparent font-bold text-xs cursor-pointer outline-none ${isCyber ? 'border-[#00ffff] text-white' : 'border-[#0f4c4a] text-gray-900'}`;
-      document.getElementById('hero-banner').style.background = isCyber ? "linear-gradient(135deg, #1f2833 0%, #0b0c10 100%)" : "linear-gradient(135deg, #0f4c4a 0%, #1a202c 100%)";
-      document.getElementById('footer-section').className = `text-center p-10 text-xs text-gray-400 border-t mt-12 transition-colors duration-300 ${isCyber ? 'bg-[#0b0c10] border-gray-800' : 'bg-white border-gray-200'}`;
-      
-      // Cards Theme Adjustments
-      document.querySelectorAll('.product-card, .blog-card').forEach(c => {
-        c.style.backgroundColor = isCyber ? '#1f2833' : '#ffffff';
-        c.style.borderColor = isCyber ? '#2d3748' : 'transparent';
-      });
-      document.querySelectorAll('.deal-btn').forEach(b => {
-        b.style.backgroundColor = isCyber ? '#00ffff' : '#0f4c4a';
-        b.style.color = isCyber ? '#0b0c10' : '#ffffff';
-      });
-      document.querySelectorAll('.price-text').forEach(t => {
-        t.style.color = isCyber ? '#00ffff' : '#0f4c4a';
-      });
-      document.querySelectorAll('.blog-title').forEach(t => {
-        t.style.color = isCyber ? '#ffffff' : '#1a202c';
-      });
-
-      // Reset Active Tab colors
-      const activeTab = document.getElementById('btn-deals').classList.contains('text-[#0f4c4a]') || document.getElementById('btn-deals').classList.contains('text-[#00ffff]') ? 'deals' : 'blog';
-      switchTab(activeTab);
-    }
-    function toggleAdmin(){
-    
-    let panel =
-    document.getElementById("adminPanel");
-    
-    if(panel.style.display === "none"){
-    
-    panel.style.display = "block";
-    
-    }else{
-    
-    panel.style.display = "none";
-    
-    }
-    
-    }
-  </script>
-</body>
-</html>
-                    <span class="text-lg font-black text-gray-950">$${(Math.random() * 25 + 2).toFixed(2)}</span>
-                                        <span class="text-[10px] text-gray-400 font-medium">/ unit FOB</span>
-                                    </div>
-                                    <a href="${affiliateLink}" target="_blank" onclick="logToGoogleSheet('Product Click', '${productName}', '${affiliateLink}')" class="w-full bg-blue-600 hover:bg-gray-900 text-white text-xs font-bold py-3 rounded-xl transition-all duration-200 flex items-center justify-center gap-2 text-center shadow-xs">
-                                        <span>Compare & Buy</span> <i class="fa-solid fa-arrow-right text-[10px]"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    `;
-                    grid.innerHTML += productHTML;
-                }
-            }, 1000);
-        });
-    </script>
-</body>
-</html>
-026</span> • <span>4 min read</span>
-              </div>
-              <h3 class="text-lg font-bold text-gray-900 mb-2 blog-title">How to Find True Online Product Discounts Fast</h3>
-              <p class="text-xs text-gray-500 leading-relaxed">Stop overpaying today. Learn the secret metrics behind major store discounts like Amazon, Daraz, and AliExpress.</p>
-            </div>
-            <button onclick="alert('Full article content integration upcoming.')" class="self-start mt-4 text-sm font-bold text-orange-500 hover:opacity-80 transition blog-link">Read Article →</button>
-          </div>
-        </article>
-      </div>
-    </div>
-
-  </main>
-
-  <footer class="text-center p-10 text-xs text-gray-400 border-t mt-12 bg-white transition-colors duration-300" id="footer-section">
-    <p class="max-w-xl mx-auto mb-4 style='line-height: 1.6' opacity-80">
-      Disclaimer: KING SETUP is a premium affiliate network platform. Some of the links above are affiliate links, meaning we may earn a small commission at no additional cost to you.
-    </p>
-    © 2026 KING SETUP Network Platform. All rights reserved.
-  </footer>
-
-  <script>
-    let currentCategory = 'All';
-
-    function switchTab(tab) {
-      const dealsSec = document.getElementById('deals-section');
-      const blogSec = document.getElementById('blog-section');
-      const btnDeals = document.getElementById('btn-deals');
-      const btnBlog = document.getElementById('btn-blog');
-      const searchContainer = document.getElementById('search-container');
-      const isCyber = document.getElementById('theme-select').value === 'cyber';
-
-      if (tab === 'deals') {
-        dealsSec.classList.remove('hidden');
-        blogSec.classList.add('hidden');
-        searchContainer.classList.remove('opacity-0');
-        btnDeals.className = `font-bold text-sm ${isCyber ? 'text-[#00ffff]' : 'text-[#0f4c4a]'}`;
-        btnBlog.className = 'text-sm text-gray-500 hover:text-gray-900';
-      } else {
-        dealsSec.classList.add('hidden');
-        blogSec.classList.remove('hidden');
-        searchContainer.classList.add('opacity-0');
-        btnBlog.className = `font-bold text-sm ${isCyber ? 'text-[#00ffff]' : 'text-[#0f4c4a]'}`;
-        btnDeals.className = 'text-sm text-gray-500 hover:text-gray-900';
-      }
-    }
-
-    function filterCategory(cat) {
-      currentCategory = cat;
-      const btns = document.querySelectorAll('.cat-btn');
-      btns.forEach(btn => {
-        if(btn.innerText === cat) {
-          btn.className = "cat-btn bg-orange-500 text-white p-2 px-5 rounded-full text-xs font-semibold shadow-sm transition";
-        } else {
-          btn.className = "cat-btn bg-white text-gray-800 p-2 px-5 rounded-full text-xs font-semibold shadow-sm hover:bg-gray-100 transition";
-        }
-      });
-      filterProducts();
-    }
-
-    function filterProducts() {
-      const query = document.getElementById('search-input').value.toLowerCase();
-      const cards = document.querySelectorAll('.product-card');
-      
-      cards.forEach(card => {
-        const cat = card.getAttribute('data-category');
-        const name = card.getAttribute('data-name');
-        
-        const matchesCat = (currentCategory === 'All' || cat === currentCategory);
-        const matchesSearch = name.includes(query);
-        
-        if(matchesCat && matchesSearch) {
-          card.classList.remove('hidden');
-        } else {
-          card.classList.add('hidden');
-        }
-      });
-    }
-
-    function toggleTheme(theme) {
-      const isCyber = theme === 'cyber';
-      document.getElementById('body-bg').className = isCyber ? "bg-[#0b0c10] text-white" : "bg-[#f4f7f6] text-gray-900";
-      document.getElementById('nav-card').className = `p-4 px-6 flex justify-between items-center shadow-sm sticky top-0 z-50 transition-colors duration-300 ${isCyber ? 'bg-[#1f2833] text-white' : 'bg-white text-gray-900'}`;
-      document.getElementById('logo-text').className = `text-xl font-extrabold tracking-wide ${isCyber ? 'text-[#00ffff]' : 'text-[#0f4c4a]'}`;
-      document.getElementById('theme-select').className = `p-1.5 px-3 rounded-full border-2 bg-transparent font-bold text-xs cursor-pointer outline-none ${isCyber ? 'border-[#00ffff] text-white' : 'border-[#0f4c4a] text-gray-900'}`;
-      document.getElementById('hero-banner').style.background = isCyber ? "linear-gradient(135deg, #1f2833 0%, #0b0c10 100%)" : "linear-gradient(135deg, #0f4c4a 0%, #1a202c 100%)";
-      document.getElementById('footer-section').className = `text-center p-10 text-xs text-gray-400 border-t mt-12 transition-colors duration-300 ${isCyber ? 'bg-[#0b0c10] border-gray-800' : 'bg-white border-gray-200'}`;
-      
-      // Cards Theme Adjustments
-      document.querySelectorAll('.product-card, .blog-card').forEach(c => {
-        c.style.backgroundColor = isCyber ? '#1f2833' : '#ffffff';
-        c.style.borderColor = isCyber ? '#2d3748' : 'transparent';
-      });
-      document.querySelectorAll('.deal-btn').forEach(b => {
-        b.style.backgroundColor = isCyber ? '#00ffff' : '#0f4c4a';
-        b.style.color = isCyber ? '#0b0c10' : '#ffffff';
-      });
-      document.querySelectorAll('.price-text').forEach(t => {
-        t.style.color = isCyber ? '#00ffff' : '#0f4c4a';
-      });
-      document.querySelectorAll('.blog-title').forEach(t => {
-        t.style.color = isCyber ? '#ffffff' : '#1a202c';
-      });
-
-      // Reset Active Tab colors
-      const activeTab = document.getElementById('btn-deals').classList.contains('text-[#0f4c4a]') || document.getElementById('btn-deals').classList.contains('text-[#00ffff]') ? 'deals' : 'blog';
-      switchTab(activeTab);
-    }
-  </script>
-</body>
 </html>
