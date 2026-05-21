@@ -1,116 +1,138 @@
 <!DOCTYPE html>
+
 <html lang="en">
 
 <head>
 
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1.0"
+>
 
 <title>King Setup</title>
 
-<style>
+<link
+rel="stylesheet"
+href="style.css"
+>
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial;
-}
+</head>
 
-body{
-background:#000;
-color:white;
-}
+<body>
 
-header{
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:20px;
-border-bottom:1px solid #222;
-position:sticky;
-top:0;
-background:#000;
-z-index:100;
-}
+<header>
 
-.logo{
-font-size:28px;
-font-weight:bold;
-color:gold;
-}
+<div class="logo">
+KING SETUP
+</div>
 
-.admin-btn{
-background:gold;
-color:black;
-border:none;
-padding:10px 20px;
-border-radius:10px;
-font-weight:bold;
-}
+<div class="top-buttons">
 
-.hero{
-padding:50px 20px;
-text-align:center;
-}
+<button id="themeToggle">
+Theme
+</button>
 
-.hero h1{
-font-size:45px;
-color:gold;
-margin-bottom:15px;
-}
+</div>
 
-.hero p{
-color:#aaa;
-margin-bottom:30px;
-}
+</header>
 
-.search-box{
-display:flex;
-justify-content:center;
-gap:10px;
-flex-wrap:wrap;
-}
+<section class="hero">
 
-.search-box input{
-width:70%;
-max-width:400px;
-padding:15px;
-border:none;
-border-radius:10px;
-background:#111;
-color:white;
-font-size:16px;
-}
+<h1>
+Global Marketplace Search
+</h1>
 
-.search-box button{
-padding:15px 20px;
-background:gold;
-border:none;
-border-radius:10px;
-font-weight:bold;
-}
+<p>
+Search products from multiple marketplaces
+</p>
 
-#adminPanel{
-display:none;
-background:#111;
-padding:20px;
-border-bottom:1px solid #222;
-}
+<div class="search-box">
 
-.admin-container{
-max-width:500px;
-margin:auto;
-display:flex;
-flex-direction:column;
-gap:10px;
-}
+<input
+type="text"
+id="searchInput"
+placeholder="Search products..."
+onkeyup="searchProducts()"
+>
 
-.admin-container input{
-padding:15px;
-background:#000;
-border:1px solid #333;
-border-radius:10px;
+</div>
+
+</section>
+
+<section
+class="showcase"
+id="showcase"
+>
+
+<div class="showcase-left">
+
+<img
+id="showcaseImage"
+src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9"
+>
+
+</div>
+
+<div class="showcase-right">
+
+<h2 id="showcaseTitle">
+iPhone 15 Pro
+</h2>
+
+<div id="showcasePrice">
+$999
+</div>
+
+<div class="marketplaces">
+
+<div
+class="market-card"
+onmouseover="changeMarket('Amazon')"
+>
+Amazon
+</div>
+
+<div
+class="market-card"
+onmouseover="changeMarket('Alibaba')"
+>
+Alibaba
+</div>
+
+<div
+class="market-card"
+onmouseover="changeMarket('AliExpress')"
+>
+AliExpress
+</div>
+
+</div>
+
+<button
+class="buy-btn"
+id="buyBtn"
+>
+Visit Marketplace
+</button>
+
+</div>
+
+</section>
+
+<section
+class="products"
+id="productContainer"
+>
+
+</section>
+
+<script src="script.js"></script>
+
+</body>
+
+</html>px;
 color:white;
 }
 
@@ -612,4 +634,283 @@ document.getElementById("productMarket").value = "";
 
 </body>
 
+</html>st title = document.getElementById('resultTitle');
+
+            grid.innerHTML = "";
+            loading.classList.remove('hidden');
+            header.classList.remove('hidden');
+            title.innerText = `Aggregated Matrix for "${keyword}"`;
+
+            setTimeout(() => {
+                loading.classList.add('hidden');
+                
+                const platforms = [
+                    { name: "AliExpress Hub", icon: "fa-store", color: "bg-orange-500 text-white", domain: "aliexpress.com" },
+                    { name: "Alibaba Factory", icon: "fa-boxes-stacked", color: "bg-amber-500 text-gray-950", domain: "alibaba.com" }
+                ];
+
+                for (let i = 1; i <= 8; i++) {
+                    const platform = platforms[i % 2]; 
+                    const productName = `${keyword} OEM Industrial Grade Build v${i}`;
+                    const originalLink = `https://www.${platform.domain}/item/${Math.floor(Math.random() * 999999)}.html`;
+                    const affiliateLink = `${originalLink}?aff_id=${DEFAULT_TRACKING_ID}`;
+
+                    const productHTML = `
+                        <div class="bg-white rounded-2xl border border-gray-200 shadow-xs hover:shadow-lg transition-all duration-300 flex flex-col overflow-hidden group">
+                            <div class="relative bg-gray-50 pt-[100%] overflow-hidden">
+                                <img src="https://images.unsplash.com/photo-1546868871-7041f2a55e12?w=400" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                                <span class="absolute top-3 left-3 ${platform.color} text-[10px] font-black tracking-wider px-2.5 py-1 rounded-md flex items-center gap-1.5 uppercase shadow-sm">
+                                    <i class="fa-solid ${platform.icon}"></i> ${platform.name}
+                                </span>
+                            </div>
+                            <div class="p-4 flex flex-col flex-grow">
+                                <h3 class="font-bold text-gray-900 text-sm line-clamp-2 mb-2 group-hover:text-blue-600 transition-colors">${productName}</h3>
+                                <div class="mt-auto pt-3 border-t border-gray-100">
+                                    <div class="flex items-baseline gap-1 mb-4">
+                                        <span class="text-lg font-black text-gray-950">$${(Math.random() * 25 + 2).toFixed(2)}</span>
+                                        <span class="text-[10px] text-gray-400 font-medium">/ unit FOB</span>
+                                    </div>
+                                    <a href="${affiliateLink}" target="_blank" onclick="logToGoogleSheet('Product Click', '${productName}', '${affiliateLink}')" class="w-full bg-blue-600 hover:bg-gray-900 text-white text-xs font-bold py-3 rounded-xl transition-all duration-200 flex items-center justify-center gap-2 text-center shadow-xs">
+                                        <span>Compare & Buy</span> <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    grid.innerHTML += productHTML;
+                }
+            }, 1000);
+        });
+    </script>
+</body>
 </html>
+026</span> • <span>4 min read</span>
+              </div>
+              <h3 class="text-lg font-bold text-gray-900 mb-2 blog-title">How to Find True Online Product Discounts Fast</h3>
+              <p class="text-xs text-gray-500 leading-relaxed">Stop overpaying today. Learn the secret metrics behind major store discounts like Amazon, Daraz, and AliExpress.</p>
+            </div>
+            <button onclick="alert('Full article content integration upcoming.')" class="self-start mt-4 text-sm font-bold text-orange-500 hover:opacity-80 transition blog-link">Read Article →</button>
+          </div>
+        </article>
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="text-center p-10 text-xs text-gray-400 border-t mt-12 bg-white transition-colors duration-300" id="footer-section">
+    <p class="max-w-xl mx-auto mb-4 style='line-height: 1.6' opacity-80">
+      Disclaimer: KING SETUP is a premium affiliate network platform. Some of the links above are affiliate links, meaning we may earn a small commission at no additional cost to you.
+    </p>
+    © 2026 KING SETUP Network Platform. All rights reserved.
+  </footer>
+
+  <script>
+    let currentCategory = 'All';
+
+    function switchTab(tab) {
+      const dealsSec = document.getElementById('deals-section');
+      const blogSec = document.getElementById('blog-section');
+      const btnDeals = document.getElementById('btn-deals');
+      const btnBlog = document.getElementById('btn-blog');
+      const searchContainer = document.getElementById('search-container');
+      const isCyber = document.getElementById('theme-select').value === 'cyber';
+
+      if (tab === 'deals') {
+        dealsSec.classList.remove('hidden');
+        blogSec.classList.add('hidden');
+        searchContainer.classList.remove('opacity-0');
+        btnDeals.className = `font-bold text-sm ${isCyber ? 'text-[#00ffff]' : 'text-[#0f4c4a]'}`;
+        btnBlog.className = 'text-sm text-gray-500 hover:text-gray-900';
+      } else {
+        dealsSec.classList.add('hidden');
+        blogSec.classList.remove('hidden');
+        searchContainer.classList.add('opacity-0');
+        btnBlog.className = `font-bold text-sm ${isCyber ? 'text-[#00ffff]' : 'text-[#0f4c4a]'}`;
+        btnDeals.className = 'text-sm text-gray-500 hover:text-gray-900';
+      }
+    }
+
+    function filterCategory(cat) {
+      currentCategory = cat;
+      const btns = document.querySelectorAll('.cat-btn');
+      btns.forEach(btn => {
+        if(btn.innerText === cat) {
+          btn.className = "cat-btn bg-orange-500 text-white p-2 px-5 rounded-full text-xs font-semibold shadow-sm transition";
+        } else {
+          btn.className = "cat-btn bg-white text-gray-800 p-2 px-5 rounded-full text-xs font-semibold shadow-sm hover:bg-gray-100 transition";
+        }
+      });
+      filterProducts();
+    }
+
+    function filterProducts() {
+      const query = document.getElementById('search-input').value.toLowerCase();
+      const cards = document.querySelectorAll('.product-card');
+      
+      cards.forEach(card => {
+        const cat = card.getAttribute('data-category');
+        const name = card.getAttribute('data-name');
+        
+        const matchesCat = (currentCategory === 'All' || cat === currentCategory);
+        const matchesSearch = name.includes(query);
+        
+        if(matchesCat && matchesSearch) {
+          card.classList.remove('hidden');
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+    }
+
+    function toggleTheme(theme) {
+      const isCyber = theme === 'cyber';
+      document.getElementById('body-bg').className = isCyber ? "bg-[#0b0c10] text-white" : "bg-[#f4f7f6] text-gray-900";
+      document.getElementById('nav-card').className = `p-4 px-6 flex justify-between items-center shadow-sm sticky top-0 z-50 transition-colors duration-300 ${isCyber ? 'bg-[#1f2833] text-white' : 'bg-white text-gray-900'}`;
+      document.getElementById('logo-text').className = `text-xl font-extrabold tracking-wide ${isCyber ? 'text-[#00ffff]' : 'text-[#0f4c4a]'}`;
+      document.getElementById('theme-select').className = `p-1.5 px-3 rounded-full border-2 bg-transparent font-bold text-xs cursor-pointer outline-none ${isCyber ? 'border-[#00ffff] text-white' : 'border-[#0f4c4a] text-gray-900'}`;
+      document.getElementById('hero-banner').style.background = isCyber ? "linear-gradient(135deg, #1f2833 0%, #0b0c10 100%)" : "linear-gradient(135deg, #0f4c4a 0%, #1a202c 100%)";
+      document.getElementById('footer-section').className = `text-center p-10 text-xs text-gray-400 border-t mt-12 transition-colors duration-300 ${isCyber ? 'bg-[#0b0c10] border-gray-800' : 'bg-white border-gray-200'}`;
+      
+      // Cards Theme Adjustments
+      document.querySelectorAll('.product-card, .blog-card').forEach(c => {
+        c.style.backgroundColor = isCyber ? '#1f2833' : '#ffffff';
+        c.style.borderColor = isCyber ? '#2d3748' : 'transparent';
+      });
+      document.querySelectorAll('.deal-btn').forEach(b => {
+        b.style.backgroundColor = isCyber ? '#00ffff' : '#0f4c4a';
+        b.style.color = isCyber ? '#0b0c10' : '#ffffff';
+      });
+      document.querySelectorAll('.price-text').forEach(t => {
+        t.style.color = isCyber ? '#00ffff' : '#0f4c4a';
+      });
+      document.querySelectorAll('.blog-title').forEach(t => {
+        t.style.color = isCyber ? '#ffffff' : '#1a202c';
+      });
+
+      // Reset Active Tab colors
+      const activeTab = document.getElementById('btn-deals').classList.contains('text-[#0f4c4a]') || document.getElementById('btn-deals').classList.contains('text-[#00ffff]') ? 'deals' : 'blog';
+      switchTab(activeTab);
+    }
+    function toggleAdmin(){
+    
+    let password =
+    prompt("Enter Admin Password");
+    
+    if(password === "king123"){
+    
+    let panel =
+    document.getElementById("adminPanel");
+    
+    if(panel.style.display === "none"){
+    
+    panel.style.display = "block";
+    
+    }else{
+    
+    panel.style.display = "none";
+    
+    }
+    
+    }else{
+    
+    alert("Wrong Password");
+    
+    }
+    
+    }
+    
+    let panel =
+    document.getElementById("adminPanel");
+    
+    if(panel.style.display === "none"){
+    
+    panel.style.display = "block";
+    
+    }else{
+    
+    panel.style.display = "none";
+    
+    }
+    
+    }
+  </script>
+  <footer
+  style="
+  background:#111;
+  padding:30px 20px;
+  margin-top:40px;
+  border-top:1px solid #222;
+  text-align:center;
+  "
+  >
+  
+  <h2 style="
+  color:gold;
+  margin-bottom:10px;
+  ">
+  King Setup
+  </h2>
+  
+  <p style="
+  color:#aaa;
+  font-size:14px;
+  max-width:500px;
+  margin:auto;
+  line-height:1.6;
+  ">
+  Global Dynamic Marketplace Search Engine
+  with Admin Control System and Product
+  Management Platform.
+  </p>
+  
+  <div style="
+  margin-top:20px;
+  display:flex;
+  justify-content:center;
+  gap:15px;
+  flex-wrap:wrap;
+  ">
+  
+  <button style="
+  padding:10px 15px;
+  background:#222;
+  color:white;
+  border:none;
+  border-radius:10px;
+  ">
+  Amazon
+  </button>
+  
+  <button style="
+  padding:10px 15px;
+  background:#222;
+  color:white;
+  border:none;
+  border-radius:10px;
+  ">
+  Alibaba
+  </button>
+  
+  <button style="
+  padding:10px 15px;
+  background:#222;
+  color:white;
+  border:none;
+  border-radius:10px;
+  ">
+  AliExpress
+  </button>
+  
+  </div>
+  
+  <p style="
+  margin-top:25px;
+  color:#666;
+  font-size:12px;
+  ">
+  © 2026 King Setup. All Rights Reserved.
+  </p>
+  
+  </footer>
+</body>
+  </html>
